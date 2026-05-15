@@ -31,7 +31,7 @@
     if (reducedMotion() || n < 2) return;
     timer = setInterval(function () {
       go(i + 1);
-    }, 5500);
+    }, 7800);
   }
 
   for (var j = 0; j < n; j++) {
