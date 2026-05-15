@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="DVR placeholder">
+  <!-- BEGIN ai-assisted - Cursor Composer -->
+  <rect width="400" height="300" fill="#111827"/>
+  <rect x="70" y="70" width="260" height="140" rx="10" fill="#1f2937" stroke="#38bdf8" stroke-width="2"/>
+  <rect x="95" y="95" width="50" height="36" rx="4" fill="#0ea5e9" opacity="0.3"/>
+  <rect x="155" y="95" width="50" height="36" rx="4" fill="#0ea5e9" opacity="0.3"/>
+  <rect x="215" y="95" width="50" height="36" rx="4" fill="#0ea5e9" opacity="0.3"/>
+  <rect x="275" y="95" width="50" height="36" rx="4" fill="#0ea5e9" opacity="0.3"/>
+  <rect x="95" y="145" width="230" height="14" rx="3" fill="#374151"/>
+  <rect x="95" y="170" width="120" height="14" rx="3" fill="#4b5563"/>
+  <!-- END ai-assisted- Cursor Composer -->
+</svg>
