@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Wi-Fi camera placeholder">
+  <!-- BEGIN ai-assisted - Cursor Composer -->
+  <rect width="400" height="300" fill="#0f172a"/>
+  <g transform="translate(200,150)">
+    <rect x="-55" y="-40" width="110" height="80" rx="16" fill="#1e293b" stroke="#a78bfa" stroke-width="3"/>
+    <circle cx="0" cy="-5" r="22" fill="#a78bfa" opacity="0.35"/>
+    <circle cx="0" cy="-5" r="10" fill="#c4b5fd"/>
+    <path d="M-30 45 L30 45 L20 65 L-20 65 Z" fill="#475569"/>
+  </g>
+  <text x="200" y="255" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI,Arial,sans-serif" font-size="14">Wi-Fi camera</text>
+  <!-- END ai-assisted- Cursor Composer -->
+</svg>
