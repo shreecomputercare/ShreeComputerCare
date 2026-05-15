@@ -1,32 +1,38 @@
 :root {
-      --bg-deep: #080a0f;
-      --bg-mid: #0f141c;
-      --surface: rgba(22, 28, 38, 0.72);
-      --surface-border: rgba(120, 160, 200, 0.12);
-      --text: #eef4fb;
-      --text-soft: #9fb0c8;
-      --accent: #38bdf8;
-      --accent-2: #a78bfa;
-      --accent-warm: #fbbf24;
-      --glow: rgba(56, 189, 248, 0.35);
+      --bg-deep: #f8fafc;
+      --bg-mid: #f1f5f9;
+      --surface: rgba(255, 255, 255, 0.88);
+      --surface-border: rgba(14, 116, 144, 0.16);
+      --text: #0f172a;
+      --text-soft: #475569;
+      --accent: #0284c7;
+      --accent-2: #7c3aed;
+      --accent-warm: #ea580c;
+      --glow: rgba(2, 132, 199, 0.28);
       --radius: 16px;
       --font: "Segoe UI", system-ui, -apple-system, Roboto, Ubuntu, sans-serif;
       --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow-soft: 0 10px 36px rgba(15, 23, 42, 0.08);
+      --shadow-card: 0 18px 48px rgba(15, 23, 42, 0.1);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
+      /* Keeps in-page nav clicks clear of the sticky header */
+      scroll-padding-top: 5.75rem;
     }
 
     body {
       margin: 0;
       font-family: var(--font);
       color: var(--text);
-      background: var(--bg-deep);
+      background: linear-gradient(180deg, #fffbeb 0%, #ecfeff 38%, #eef2ff 72%, #faf5ff 100%);
       line-height: 1.65;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     /* Ambient background */
@@ -35,10 +41,10 @@
       inset: 0;
       z-index: -2;
       background:
-        radial-gradient(ellipse 100% 80% at 10% -10%, rgba(56, 189, 248, 0.18), transparent 50%),
-        radial-gradient(ellipse 80% 60% at 95% 10%, rgba(167, 139, 250, 0.14), transparent 45%),
-        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(251, 191, 36, 0.06), transparent 55%),
-        linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-deep) 55%);
+        radial-gradient(ellipse 100% 75% at 5% -5%, rgba(251, 191, 36, 0.28), transparent 52%),
+        radial-gradient(ellipse 85% 60% at 100% 5%, rgba(14, 165, 233, 0.22), transparent 48%),
+        radial-gradient(ellipse 70% 50% at 50% 105%, rgba(167, 139, 250, 0.2), transparent 55%),
+        linear-gradient(168deg, #fffdf7 0%, #e0f2fe 35%, #ede9fe 68%, #fffbeb 100%);
     }
 
     .bg-orbs {
@@ -53,14 +59,14 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(80px);
-      opacity: 0.5;
-      animation: orbFloat 18s var(--ease-out) infinite alternate;
+      opacity: 0.55;
+      animation: orbFloat 32s var(--ease-out) infinite alternate;
     }
 
     .orb-1 {
       width: min(55vw, 420px);
       height: min(55vw, 420px);
-      background: rgba(56, 189, 248, 0.25);
+      background: rgba(14, 165, 233, 0.35);
       top: -8%;
       left: -10%;
       animation-delay: -4s;
@@ -69,7 +75,7 @@
     .orb-2 {
       width: min(45vw, 360px);
       height: min(45vw, 360px);
-      background: rgba(167, 139, 250, 0.22);
+      background: rgba(167, 139, 250, 0.32);
       top: 35%;
       right: -12%;
       animation-delay: -8s;
@@ -78,7 +84,7 @@
     .orb-3 {
       width: min(40vw, 320px);
       height: min(40vw, 320px);
-      background: rgba(251, 191, 36, 0.12);
+      background: rgba(251, 191, 36, 0.28);
       bottom: -5%;
       left: 25%;
       animation-delay: -2s;
@@ -95,15 +101,16 @@
       top: 0;
       z-index: 50;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
       padding: 0.85rem clamp(1rem, 4vw, 2rem);
-      background: rgba(8, 10, 15, 0.65);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--surface-border);
-      animation: topbarIn 0.8s var(--ease-out) both;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      animation: topbarIn 1.15s var(--ease-out) both;
     }
 
     @keyframes topbarIn {
@@ -120,22 +127,32 @@
     }
 
     .brand-mark {
-      width: 40px;
+      min-width: 44px;
       height: 40px;
+      padding: 0 0.45rem;
       border-radius: 12px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       display: grid;
       place-items: center;
       font-weight: 800;
       font-size: 0.95rem;
-      color: #041018;
-      box-shadow: 0 0 24px var(--glow);
-      animation: markPulse 3.5s ease-in-out infinite;
+      color: #ffffff;
+      box-shadow: 0 4px 20px var(--glow);
+      animation: markPulse 6s ease-in-out infinite;
+    }
+
+    /* Hindi श्री — use with Noto Sans Devanagari from Google Fonts */
+    .brand-mark-devanagari {
+      font-family: "Noto Sans Devanagari", "Noto Sans", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.18rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
     }
 
     @keyframes markPulse {
-      0%, 100% { box-shadow: 0 0 20px var(--glow); transform: scale(1); }
-      50% { box-shadow: 0 0 36px rgba(167, 139, 250, 0.45); transform: scale(1.03); }
+      0%, 100% { box-shadow: 0 4px 18px var(--glow); transform: scale(1); }
+      50% { box-shadow: 0 8px 28px rgba(124, 58, 237, 0.35); transform: scale(1.03); }
     }
 
     .brand-text {
@@ -167,7 +184,7 @@
       font-weight: 500;
       position: relative;
       padding: 0.25rem 0;
-      transition: color 0.25s ease;
+      transition: color 0.55s var(--ease-out), opacity 0.35s ease, transform 0.35s var(--ease-out);
     }
 
     .nav-links a::after {
@@ -179,7 +196,7 @@
       height: 2px;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
       border-radius: 2px;
-      transition: width 0.35s var(--ease-out);
+      transition: width 0.65s var(--ease-out);
     }
 
     .nav-links a:hover {
@@ -188,6 +205,20 @@
 
     .nav-links a:hover::after {
       width: 100%;
+    }
+
+    .nav-links a:focus-visible {
+      color: var(--text);
+      outline: none;
+    }
+
+    .nav-links a:focus-visible::after {
+      width: 100%;
+    }
+
+    .nav-links a:active {
+      opacity: 0.82;
+      transform: translateY(1px);
     }
 
     .btn-call {
@@ -199,16 +230,17 @@
       font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
-      color: #041018;
-      background: linear-gradient(135deg, #7dd3fc, var(--accent));
-      box-shadow: 0 4px 24px rgba(56, 189, 248, 0.35);
-      transition: transform 0.25s var(--ease-out), box-shadow 0.25s ease;
+      color: #0f172a;
+      background: linear-gradient(135deg, #7dd3fc, #38bdf8);
+      box-shadow: 0 4px 20px rgba(2, 132, 199, 0.22);
+      transition: transform 0.45s var(--ease-out), box-shadow 0.45s ease;
       white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .btn-call:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(56, 189, 248, 0.45);
+      box-shadow: 0 8px 28px rgba(2, 132, 199, 0.28);
     }
 
     .btn-call:active {
@@ -233,10 +265,10 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--accent-warm);
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.25);
+      background: rgba(251, 191, 36, 0.2);
+      border: 1px solid rgba(234, 88, 12, 0.22);
       margin-bottom: 1.25rem;
-      animation: fadeUp 0.9s var(--ease-out) 0.1s both;
+      animation: fadeUp 1.25s var(--ease-out) 0.1s both;
     }
 
     .hero-badge::before {
@@ -246,7 +278,7 @@
       border-radius: 50%;
       background: var(--accent-warm);
       box-shadow: 0 0 10px var(--accent-warm);
-      animation: blink 2s ease-in-out infinite;
+      animation: blink 3.2s ease-in-out infinite;
     }
 
     @keyframes blink {
@@ -260,16 +292,16 @@
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.12;
-      animation: fadeUp 0.95s var(--ease-out) 0.15s both;
+      animation: fadeUp 1.3s var(--ease-out) 0.15s both;
     }
 
     .hero h1 .grad {
-      background: linear-gradient(105deg, #e0f2fe, var(--accent), var(--accent-2), #fde68a);
+      background: linear-gradient(105deg, #0369a1, #0d9488, #7c3aed, #ea580c);
       background-size: 200% auto;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      animation: gradShift 8s ease infinite;
+      animation: gradShift 14s ease infinite;
     }
 
     @keyframes gradShift {
@@ -282,14 +314,14 @@
       max-width: 36rem;
       font-size: 1.08rem;
       color: var(--text-soft);
-      animation: fadeUp 1s var(--ease-out) 0.25s both;
+      animation: fadeUp 1.35s var(--ease-out) 0.25s both;
     }
 
     .hero-cta {
       display: flex;
       flex-wrap: wrap;
       gap: 0.85rem;
-      animation: fadeUp 1.05s var(--ease-out) 0.35s both;
+      animation: fadeUp 1.45s var(--ease-out) 0.35s both;
     }
 
     .btn-primary {
@@ -300,15 +332,15 @@
       border-radius: 12px;
       font-weight: 600;
       text-decoration: none;
-      color: #041018;
-      background: linear-gradient(135deg, #bae6fd, var(--accent));
-      box-shadow: 0 8px 32px rgba(56, 189, 248, 0.3);
-      transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease;
+      color: #0f172a;
+      background: linear-gradient(135deg, #bae6fd, #38bdf8);
+      box-shadow: 0 8px 28px rgba(2, 132, 199, 0.25);
+      transition: transform 0.45s var(--ease-out), box-shadow 0.45s ease;
     }
 
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 14px 40px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 14px 36px rgba(2, 132, 199, 0.28);
     }
 
     .btn-ghost {
@@ -321,13 +353,13 @@
       text-decoration: none;
       color: var(--text);
       border: 1px solid var(--surface-border);
-      background: rgba(255, 255, 255, 0.03);
-      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s var(--ease-out);
+      background: rgba(255, 255, 255, 0.55);
+      transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s var(--ease-out);
     }
 
     .btn-ghost:hover {
-      border-color: rgba(167, 139, 250, 0.45);
-      background: rgba(167, 139, 250, 0.08);
+      border-color: rgba(124, 58, 237, 0.35);
+      background: rgba(237, 233, 254, 0.65);
       transform: translateY(-2px);
     }
 
@@ -386,13 +418,13 @@
       border: 1px solid var(--surface-border);
       overflow: hidden;
       opacity: 0;
-      animation: cardIn 0.85s var(--ease-out) forwards;
-      transition: transform 0.4s var(--ease-out), border-color 0.35s ease, box-shadow 0.4s ease;
+      animation: cardIn 1.2s var(--ease-out) forwards;
+      transition: transform 0.55s var(--ease-out), border-color 0.45s ease, box-shadow 0.55s ease;
     }
 
-    .service-card:nth-child(1) { animation-delay: 0.05s; }
-    .service-card:nth-child(2) { animation-delay: 0.15s; }
-    .service-card:nth-child(3) { animation-delay: 0.25s; }
+    .service-card:nth-child(1) { animation-delay: 0.08s; }
+    .service-card:nth-child(2) { animation-delay: 0.22s; }
+    .service-card:nth-child(3) { animation-delay: 0.36s; }
 
     @keyframes cardIn {
       from {
@@ -411,20 +443,20 @@
       inset: -1px;
       border-radius: inherit;
       padding: 1px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), transparent 40%, rgba(167, 139, 250, 0.25));
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.22), transparent 42%, rgba(124, 58, 237, 0.18));
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.55s ease;
       pointer-events: none;
     }
 
     .service-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(56, 189, 248, 0.25);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(56, 189, 248, 0.08);
+      border-color: rgba(2, 132, 199, 0.28);
+      box-shadow: var(--shadow-card), 0 0 0 1px rgba(2, 132, 199, 0.06);
     }
 
     .service-card:hover::before {
@@ -439,8 +471,8 @@
       place-items: center;
       font-size: 1.35rem;
       margin-bottom: 1rem;
-      background: linear-gradient(145deg, rgba(56, 189, 248, 0.2), rgba(167, 139, 250, 0.12));
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(145deg, rgba(14, 165, 233, 0.16), rgba(124, 58, 237, 0.12));
+      border: 1px solid rgba(15, 23, 42, 0.06);
     }
 
     .service-card h3 {
@@ -471,13 +503,13 @@
       margin-top: 2.75rem;
       padding: 1.75rem clamp(1.25rem, 4vw, 2rem);
       border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(167, 139, 250, 0.06));
+      background: linear-gradient(135deg, rgba(224, 242, 254, 0.95), rgba(250, 232, 255, 0.88));
       border: 1px solid var(--surface-border);
       display: grid;
       gap: 1.25rem;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       align-items: center;
-      animation: fadeUp 1s var(--ease-out) 0.4s both;
+      animation: fadeUp 1.35s var(--ease-out) 0.4s both;
     }
 
     .contact-panel h2 {
@@ -503,7 +535,7 @@
       font-weight: 600;
       color: var(--text);
       text-decoration: none;
-      transition: color 0.2s ease;
+      transition: color 0.4s ease;
     }
 
     .contact-item a:hover {
@@ -513,7 +545,7 @@
     /* Map */
     .map-section {
       margin-top: 2.75rem;
-      animation: fadeUp 1.05s var(--ease-out) 0.5s both;
+      animation: fadeUp 1.45s var(--ease-out) 0.5s both;
     }
 
     .map-section h2 {
@@ -528,7 +560,7 @@
       border: 1px solid var(--surface-border);
       aspect-ratio: 16 / 10;
       max-height: 380px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-soft);
     }
 
     .map-frame::after {
@@ -536,7 +568,7 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.65);
       pointer-events: none;
     }
 
@@ -578,13 +610,7 @@
         transform: none !important;
       }
       .service-card { transition: none; }
-      .btn-primary, .btn-ghost, .btn-call, .nav-links a {
+      .btn-primary, .btn-ghost, .btn-call, .btn-wa, .nav-links a {
         transition: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        display: none;
       }
     }
